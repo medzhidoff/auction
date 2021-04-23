@@ -42,3 +42,6 @@ and the owner is able to reply to those questions.
 11. Users are able to reset their password, in case they have forgotten it. This would be 
 done via a “reset password link” sent to their email. 
 
+## Extra
+
+<a href=''>More details here</a>
