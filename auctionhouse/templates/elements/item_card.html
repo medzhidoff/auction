@@ -1,0 +1,34 @@
+{% load static %}
+<div class="card-product-style bg-white rounded transition duration-500 hover:shadow-lg">
+    <div class="card-product-image relative">
+        <img class="w-full rounded" src="{{ auction.image.url }}" alt="title">
+        <span class="card-product-label absolute top-4 right-4 bg-white rounded-full text-coolGray-600 font-normal text-sm flex justify-center items-center py-px px-3">
+            <span class="mr-1">
+                <img class="h-3" src="{% static "images/heart-icon.png" %}" alt="title">
+            </span>
+        12
+        </span>
+    </div>
+    <div class="card-product-content px-4 py-6">
+        <a class="card-product-collection" href="item-collection.html">
+            <p class="text-teal-400 font-medium text-sm flex items-center mb-2">
+                {{ auction.owner.profile.name }}
+                <span class="ml-2">
+                    <img class="h-4" src="{% static "images/verified-icon.png" %}" alt="title">
+                </span>
+            </p>
+        </a>
+        <h2 class="text-coolGray-900 text-lg font-bold transition duration-500 hover:text-teal-400 mb-2"><a href="item-details.html">{{ auction.title }}</a></h2>
+        <div class="card-porduct-price text-sm flex items-center mb-6">
+            <p class="text-coolGray-600 font-medium flex items-center">
+                {{ auction.price }} руб.
+            </p>
+        </div>
+        <a href="item-details.html" class="btn-style-1 inline-flex items-center justify-center border border-teal-400 text-coolGray-600 text-sm font-medium rounded-full transition-all duration-500 hover:text-white px-4 py-1.5">
+            <span class="mr-2">
+                <img class="h-3" src="{% static "images/placebid-icon.png" %}" alt="title">
+            </span>
+            Сделать ставку
+        </a>
+    </div>
+</div>

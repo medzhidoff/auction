@@ -1,0 +1,105 @@
+{% load static %}
+<header class="header-area relative z-50 w-full py-4 lg:py-9">
+    <div class="header-area-inner relative px-4 z-20">
+        <nav class="header-nav flex items-center justify-between relative">
+            <div class="header-logo">
+                <a href="index-2.html" class="flex items-center flex-shrink-0 mr-6">
+                    <svg width="128" height="27" viewBox="0 0 128 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.176 1.5V7.956L11.976 10.428L13.776 7.956V1.5H10.176ZM13.776 7.956V11.028L16.68 10.068L20.496 4.86L17.568 2.724L13.776 7.956ZM16.68 10.068L14.88 12.564L17.808 13.5L23.952 11.508L22.824 8.076L16.68 10.068ZM17.808 13.5L14.88 14.436L16.68 16.932L22.824 18.924L23.952 15.492L17.808 13.5ZM16.68 16.932L13.776 15.972V19.044L17.568 24.276L20.496 22.14L16.68 16.932ZM13.776 19.044L11.976 16.572L10.176 19.044V25.5H13.776V19.044ZM10.176 19.044V15.972L7.272 16.932L3.456 22.14L6.384 24.276L10.176 19.044ZM7.272 16.932L9.072 14.436L6.144 13.5L0 15.492L1.128 18.924L7.272 16.932ZM6.144 13.5L9.072 12.564L7.272 10.068L1.128 8.076L0 11.508L6.144 13.5ZM7.272 10.068L10.176 11.028V7.956L6.384 2.724L3.456 4.86L7.272 10.068Z" fill="url(#paint33_linear)"/>
+                        <path d="M45.4979 20.81C44.6659 21.486 43.8079 21.98 42.9239 22.292C42.0572 22.604 41.0866 22.76 40.0119 22.76C38.9892 22.76 38.0272 22.578 37.1259 22.214C36.2419 21.85 35.4706 21.356 34.8119 20.732C34.1706 20.108 33.6592 19.3713 33.2779 18.522C32.9139 17.6553 32.7319 16.728 32.7319 15.74C32.7319 14.7693 32.9052 13.8593 33.2519 13.01C33.6159 12.1433 34.1099 11.398 34.7339 10.774C35.3579 10.1327 36.0946 9.63 36.9439 9.266C37.8106 8.902 38.7292 8.72 39.6999 8.72C40.6532 8.72 41.5372 8.91067 42.3519 9.292C43.1839 9.656 43.8946 10.1587 44.4839 10.8C45.0906 11.4413 45.5586 12.2127 45.8879 13.114C46.2346 13.998 46.4079 14.96 46.4079 16V16.936H36.3199C36.5626 17.7853 37.0306 18.47 37.7239 18.99C38.4172 19.51 39.2319 19.77 40.1679 19.77C40.7572 19.77 41.3119 19.6747 41.8319 19.484C42.3519 19.2933 42.7939 19.0247 43.1579 18.678L45.4979 20.81ZM39.6219 11.658C38.8072 11.658 38.1052 11.9093 37.5159 12.412C36.9266 12.8973 36.5192 13.556 36.2939 14.388H42.9239C42.6986 13.5907 42.2826 12.9407 41.6759 12.438C41.0866 11.918 40.4019 11.658 39.6219 11.658ZM49.9285 18.678V11.944H47.1465V8.954H49.9285V5.496L53.4905 4.69V8.954H57.3385V11.944H53.4905V17.95C53.4905 18.5913 53.6291 19.042 53.9065 19.302C54.1838 19.562 54.6691 19.692 55.3625 19.692C55.6918 19.692 56.0038 19.6747 56.2985 19.64C56.5931 19.588 56.9138 19.5013 57.2605 19.38V22.292C56.8791 22.4133 56.4198 22.5087 55.8825 22.578C55.3451 22.6647 54.8858 22.708 54.5045 22.708C52.9965 22.708 51.8525 22.37 51.0725 21.694C50.3098 21.0007 49.9285 19.9953 49.9285 18.678ZM59.102 22.5V4.3L62.664 3.52V10.02C63.184 9.58667 63.756 9.25733 64.38 9.032C65.0213 8.80667 65.7147 8.694 66.46 8.694C68.02 8.694 69.3027 9.19667 70.308 10.202C71.3133 11.2073 71.816 12.4987 71.816 14.076V22.5H68.254V14.596C68.254 13.7467 67.994 13.062 67.474 12.542C66.9713 12.022 66.2953 11.762 65.446 11.762C64.8567 11.762 64.3193 11.8833 63.834 12.126C63.366 12.3513 62.976 12.6807 62.664 13.114V22.5H59.102ZM86.6561 20.81C85.8241 21.486 84.9661 21.98 84.0821 22.292C83.2154 22.604 82.2448 22.76 81.1701 22.76C80.1474 22.76 79.1854 22.578 78.2841 22.214C77.4001 21.85 76.6288 21.356 75.9701 20.732C75.3288 20.108 74.8174 19.3713 74.4361 18.522C74.0721 17.6553 73.8901 16.728 73.8901 15.74C73.8901 14.7693 74.0634 13.8593 74.4101 13.01C74.7741 12.1433 75.2681 11.398 75.8921 10.774C76.5161 10.1327 77.2528 9.63 78.1021 9.266C78.9688 8.902 79.8874 8.72 80.8581 8.72C81.8114 8.72 82.6954 8.91067 83.5101 9.292C84.3421 9.656 85.0528 10.1587 85.6421 10.8C86.2488 11.4413 86.7168 12.2127 87.0461 13.114C87.3928 13.998 87.5661 14.96 87.5661 16V16.936H77.4781C77.7208 17.7853 78.1888 18.47 78.8821 18.99C79.5754 19.51 80.3901 19.77 81.3261 19.77C81.9154 19.77 82.4701 19.6747 82.9901 19.484C83.5101 19.2933 83.9521 19.0247 84.3161 18.678L86.6561 20.81ZM80.7801 11.658C79.9654 11.658 79.2634 11.9093 78.6741 12.412C78.0848 12.8973 77.6774 13.556 77.4521 14.388H84.0821C83.8568 13.5907 83.4408 12.9407 82.8341 12.438C82.2448 11.918 81.5601 11.658 80.7801 11.658ZM93.2065 8.954V16.832C93.2065 17.6987 93.4578 18.392 93.9605 18.912C94.4805 19.432 95.1651 19.692 96.0145 19.692C96.6211 19.692 97.1585 19.5793 97.6265 19.354C98.1118 19.1113 98.5105 18.7733 98.8225 18.34V8.954H102.384V22.5H98.8225V21.408C98.3025 21.8413 97.7218 22.1793 97.0805 22.422C96.4391 22.6473 95.7458 22.76 95.0005 22.76C93.4405 22.76 92.1578 22.2573 91.1525 21.252C90.1471 20.2293 89.6445 18.9293 89.6445 17.352V8.954H93.2065ZM105.161 22.5V8.954H108.723V9.968C109.208 9.552 109.745 9.24 110.335 9.032C110.924 8.80667 111.565 8.694 112.259 8.694C113.125 8.694 113.905 8.876 114.599 9.24C115.309 9.58667 115.89 10.0807 116.341 10.722C116.878 10.0633 117.528 9.56067 118.291 9.214C119.053 8.86733 119.894 8.694 120.813 8.694C122.321 8.694 123.56 9.19667 124.531 10.202C125.501 11.2073 125.987 12.4987 125.987 14.076V22.5H122.425V14.596C122.425 13.7467 122.191 13.062 121.723 12.542C121.272 12.022 120.657 11.762 119.877 11.762C119.339 11.762 118.845 11.8833 118.395 12.126C117.961 12.3513 117.589 12.6807 117.277 13.114C117.294 13.27 117.311 13.426 117.329 13.582C117.346 13.738 117.355 13.9027 117.355 14.076V22.5H113.793V14.596C113.793 13.7467 113.559 13.062 113.091 12.542C112.64 12.022 112.025 11.762 111.245 11.762C110.707 11.762 110.231 11.866 109.815 12.074C109.399 12.282 109.035 12.5853 108.723 12.984V22.5H105.161Z" fill="#111827"/>
+                        <defs>
+                            <linearGradient id="paint33_linear" x1="0" y1="13.5" x2="23.952" y2="13.5" gradientUnits="userSpaceOnUse">
+                                <stop offset="100%" stop-color="#02AAB0"/>
+                                <stop offset="1" stop-color="#00CDAC"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+            <div class="flex-grow lg:flex lg:items-center lg:w-auto">
+                <ul class="toggle-menu-class dropdown-menu bg-white lg:bg-transparent shadow lg:shadow-none absolute lg:relative inset-x-0 hidden lg:flex lg:flex-grow items-center mt-10 lg:mt-0 mobile-hover">
+                    <li class="relative lg:mr-4">
+                        <a class="px-5 py-2 lg:py-5 flex items-center text-coolGray-600 font-medium transition duration-500 hover:text-teal-400 arrow" href="{% url 'auction-home' %}"> Главная</a>
+                    </li>
+                    <li class="relative dropdown lg:mr-4">
+                        <a class="px-5 py-2 lg:py-5 flex items-center text-coolGray-600 font-medium transition duration-500 hover:text-teal-400 arrow" href="#"> Аукционы <span class="leading-6 text-2xl text-center bg-teal-300 w-6 h-6 absolute right-2 top-3 block lg:hidden toggle">+</span></a>
+                        <ul class="hidden lg:block bg-white lg:absolute top-full lg:shadow lg:w-48 px-5 submenu">
+                            <li><a class="py-2 lg:py-3 border-b border-coolGray-300 flex items-center whitespace-nowrap text-coolGray-600 font-normal transition duration-500 hover:text-teal-400" href="{% url 'auction-closed' %}"> Закрытые аукционы</a></li>
+                            <li><a class="py-2 lg:py-3 border-b border-coolGray-300 flex items-center whitespace-nowrap text-coolGray-600 font-normal transition duration-500 hover:text-teal-400" href="{% url 'auction-about' %}"> О нас</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="hidden 2xl:flex w-full max-w-sm">
+                    <div class="relative w-full flex items-center">
+                        <button class="absolute top-3 left-4" type="submit">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 17L12.0962 12.0962M12.0962 12.0962C13.2725 10.9199 14 9.29493 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14C9.29493 14 10.9199 13.2725 12.0962 12.0962Z" stroke="url(#paint1_linear)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="paint1_linear" x1="1" y1="9" x2="17" y2="9" gradientUnits="userSpaceOnUse">
+                                        <stop offset="100%" stop-color="#02AAB0"/>
+                                        <stop offset="1" stop-color="#00CDAC"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </button>
+                        <input class="w-full border bg-white border-coolGray-300 placeholder-coolGray-400 rounded transition duration-500 focus:outline-none focus:shadow-lg px-10 py-2" type="text" placeholder="Type to search">
+                    </div>
+                </form>
+                <ul class="dropdown-menu right-side-menu flex flex-shrink-0">
+                    <li class="etheum-search-bar flex lg:hidden relative ml-auto mr-10">
+                        <a href="#popup-search" class="popup-modal w-10 h-10 flex justify-center items-center  text-white text-sm font-medium">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 17L12.0962 12.0962M12.0962 12.0962C13.2725 10.9199 14 9.29493 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14C9.29493 14 10.9199 13.2725 12.0962 12.0962Z" stroke="url(#paint2_linear)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="paint2_linear" x1="1" y1="9" x2="17" y2="9" gradientUnits="userSpaceOnUse">
+                                        <stop offset="100%" stop-color="#02AAB0"/>
+                                        <stop offset="1" stop-color="#00CDAC"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="hidden lg:flex relative dropdown ml-4">
+                        {% if user.is_authenticated %}
+                        <a href="#" class="flex items-center border border-teal-400 text-white text-sm font-medium rounded-full transition-all duration-500 bg-gradient-to-r from-teal-400 via-teal-100 to-teal-400 bg-size-200 bg-pos-0 hover:bg-pos-100 pr-4">
+                            <img class="w-10 h-10 border border-2 border-teal-100 object-cover rounded-full flex-shrink-0 mr-3" src="{% static "images/author/3.jpg" %}" title="ittle">5.42 ETH
+                        </a>
+                        <ul class="hidden lg:block bg-white lg:absolute rounded top-full right-0 shadow-lg lg:w-60 px-6 py-2 submenu">
+                            <li>
+                                <p class="pt-4 flex items-center text-teal-400 font-bold transition duration-500 hover:text-teal-400">{{ user.profile.name }} {{ user.profile.surname }}</p>
+                            </li>
+                            <li><a class="py-2 border-b border-coolGray-300 flex items-center text-coolGray-600 font-medium transition duration-500 hover:text-teal-400" href="{% url 'profile' %}">Профиль</a></li>
+                            <li><a class="py-2 border-b border-coolGray-300 flex items-center text-coolGray-600 font-medium transition duration-500 hover:text-teal-400" href="{% url 'auction-create' %}">Создать лот</a></li>
+                            <li><a class="py-2 flex items-center text-coolGray-600 font-medium transition duration-500 hover:text-teal-400" href="{% url 'logout' %}">Выход</a></li>
+                        </ul>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <button class="bg-coolGray-50 mobile-toggle block lg:hidden">
+                <span class="bg-coolGray-600"></span>
+                <span class="bg-coolGray-600"></span>
+                <span class="bg-coolGray-600"></span>
+            </button>
+        </nav>
+    </div>
+    <div id="popup-search" class="max-w-lg m-auto bg-white rounded shadow-lg zoom-anim-dialog mfp-hide p-10">
+        <form class="flex w-full max-w-sm mt-8">
+            <div class="relative w-full flex items-center">
+                <button class="absolute top-5 left-4" type="submit">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 17L12.0962 12.0962M12.0962 12.0962C13.2725 10.9199 14 9.29493 14 7.5C14 3.91015 11.0899 1 7.5 1C3.91015 1 1 3.91015 1 7.5C1 11.0899 3.91015 14 7.5 14C9.29493 14 10.9199 13.2725 12.0962 12.0962Z" stroke="url(#paint3_linear)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint3_linear" x1="1" y1="9" x2="17" y2="9" gradientUnits="userSpaceOnUse">
+                                <stop offset="100%" stop-color="#02AAB0"/>
+                                <stop offset="1" stop-color="#00CDAC"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </button>
+                <input class="w-full border bg-white border-coolGray-300 placeholder-coolGray-400 rounded transition duration-500 focus:outline-none focus:shadow-lg px-10 py-4" type="text" placeholder="Type to search">
+            </div>
+        </form>
+    </div>
+
+</header>
