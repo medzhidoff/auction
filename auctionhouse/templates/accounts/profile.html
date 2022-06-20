@@ -1,0 +1,121 @@
+
+{% extends "base.html" %}
+{% load crispy_forms_tags static %}
+{% block content %}
+    <!--  ====================== Hero Area =============================  -->
+    <section class="hero-area relative">
+        <div class="hero-bg-right absolute -top-40 left-0 right-0 -z-10">
+            <svg class="w-full" width="1920" height="706" viewBox="0 0 1920 706" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_f_1001_24118)">
+                    <ellipse cx="449.786" cy="-36.5" rx="236.345" ry="242.5" fill="#FEF9C3"/>
+                </g>
+                <g filter="url(#filter1_f_1001_24118)">
+                    <ellipse cx="963.711" cy="-81.5" rx="260.711" ry="267.5" fill="#CCFBF1"/>
+                </g>
+                <g filter="url(#filter2_f_1001_24118)">
+                    <ellipse cx="1683.65" cy="-36.5" rx="236.345" ry="242.5" fill="#FEF9C3"/>
+                </g>
+                <g filter="url(#filter3_f_1001_24118)">
+                    <path d="M0 -15L213.442 -15V195.279C213.442 254.219 165.661 302 106.721 302V302C47.7805 302 0 254.219 0 195.279L0 -15Z" fill="#F0FDFA"/>
+                </g>
+                <defs>
+                    <filter id="filter0_f_1001_24118" x="-286.559" y="-779" width="1472.69" height="1485" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                    <filter id="filter1_f_1001_24118" x="303" y="-749" width="1321.42" height="1335" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                    <filter id="filter2_f_1001_24118" x="947.31" y="-779" width="1472.69" height="1485" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                    <filter id="filter3_f_1001_24118" x="-89" y="-104" width="391.442" height="495" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="44.5" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="px-4 2xl:px-28">
+            <img class="max-h-60 lg:max-h-96 h-full w-full object-cover rounded" src="{% static "images/author-bg/13.jpg" %}" alt="title">
+            <div class="container">
+                <div class="flex lg:flex-nowrap items-start -mt-20">
+                    <div class="hidden sm:block shadow rounded p-5 lg:p-10 bg-white transition hover:shadow-lg">
+                        <div class="card-creator-author flex w-20 lg:w-32 ml-auto mr-auto relative mb-5">
+                            <img class="w-20 h-20 lg:w-32 lg:h-32 object-cover rounded-full border border-2 border-white" src="{{user.profile.image.url}}" alt="title">
+                            <span class="flex justify-center items-center bg-blue-500 w-6 h-6 lg:w-8 lg:h-8 rounded-full absolute bottom-2 -right-1 lg:right-2">
+                              <svg width="14" height="14" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M8.51271 0.806441C8.66923 0.657429 8.87752 0.575049 9.09362 0.576684C9.30973 0.578319 9.51674 0.663842 9.67099 0.815205C9.82523 0.966569 9.91465 1.17193 9.92036 1.38797C9.92607 1.604 9.84764 1.81381 9.7016 1.97311L5.26827 7.51755C5.19204 7.59966 5.10003 7.66556 4.99775 7.71129C4.89547 7.75703 4.78501 7.78167 4.67299 7.78375C4.56097 7.78582 4.44968 7.76529 4.34578 7.72337C4.24187 7.68145 4.14749 7.61901 4.06827 7.53977L1.12827 4.59977C1.04639 4.52348 0.980725 4.43148 0.935179 4.32926C0.889632 4.22704 0.865141 4.11669 0.863167 4.0048C0.861193 3.89291 0.881776 3.78176 0.923688 3.678C0.9656 3.57424 1.02798 3.47998 1.10712 3.40084C1.18625 3.32171 1.28051 3.25933 1.38427 3.21742C1.48804 3.1755 1.59918 3.15492 1.71107 3.1569C1.82296 3.15887 1.93331 3.18336 2.03553 3.22891C2.13776 3.27445 2.22976 3.34012 2.30605 3.422L4.63271 5.74755L8.4916 0.830886C8.49855 0.822331 8.50486 0.81417 8.51271 0.806441Z" fill="white"></path>
+                              </svg>
+                           </span>
+                        </div>
+                        <h4 class="text-coolGray-900 text-2xl font-bold text-center transition duration-500 hover:text-teal-400"><a href="creator.html">{{ user.profile.name }} {{ user.profile.surname }}</a></h4>
+                        <p class="text-coolGray-600 font-normal text-center mb-4">@s_rob </p>
+                        <div class="flex items-center justify-center mb-4">
+                            <p class="text-coolGray-600 font-normal" id="foo1">0xd07dc42.....243 </p>
+                            <button type="button" class="ml-2 clipboard" data-clipboard-target="#foo1">
+                                <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.2001 13.3V14.9C10.2001 15.3243 10.0315 15.7313 9.73147 16.0314C9.43141 16.3314 9.02444 16.5 8.6001 16.5H2.2001C1.77575 16.5 1.36878 16.3314 1.06873 16.0314C0.768669 15.7313 0.600098 15.3243 0.600098 14.9V6.1C0.600098 5.67565 0.768669 5.26869 1.06873 4.96863C1.36878 4.66857 1.77575 4.5 2.2001 4.5H3.8001M3.8001 2.1V11.7C3.8001 12.1243 3.96867 12.5313 4.26873 12.8314C4.56879 13.1314 4.97575 13.3 5.4001 13.3H11.8001C12.2244 13.3 12.6314 13.1314 12.9315 12.8314C13.2315 12.5313 13.4001 12.1243 13.4001 11.7V4.6936C13.4001 4.48045 13.3575 4.26945 13.2748 4.073C13.1921 3.87654 13.0709 3.69859 12.9185 3.5496L10.2665 0.956C9.96759 0.663726 9.56615 0.500052 9.1481 0.5H5.4001C4.97575 0.5 4.56879 0.668571 4.26873 0.968629C3.96867 1.26869 3.8001 1.67565 3.8001 2.1Z" stroke="url(#paint301_linear)" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <defs>
+                                        <linearGradient id="paint301_linear" x1="0.600098" y1="8.5" x2="13.4001" y2="8.5" gradientUnits="userSpaceOnUse">
+                                            <stop offset="100%" stop-color="#02AAB0"></stop>
+                                            <stop offset="1" stop-color="#00CDAC"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="creator.html" class="btn-style-1 flex items-center justify-center border border-teal-400 text-coolGray-600 text-sm font-medium rounded-full transition-all duration-500 hover:text-white px-4 py-2"><span class="mr-2">
+                           <img class="h-3" src="assets/images/follow-plus-icon.png" alt="title">
+                           </span> FOLLOW</a>
+                    </div>
+                    <div class="sm:pl-10 pt-28">
+                        <p class="text-coolGray-600 leading-7 font-normal mb-6">Would your side should human who excessive times of would on. Tried when break queen to visuals she by to at study in every suggests rationally phase the all village and how and, a expectations. Presented. Hardly should evaluation then belt from a visuals is ill broad. Elucidates and shown numbered upon he the whole your tower, of including could each around logging the sinking of heavy little the in</p>
+                        <h4 class="text-coolGray-900 text-xl font-medium mb-2">Follow Me</h4>
+                        <div class="social-share2 flex flex-wrap items-center">
+                            <a class="flex items-center justify-center transition duration-500 hover:text-teal-400 mt-2 mr-6" href="#"><span class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-200 mr-2"><svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.0089 13.5V7.57973H7.00616L7.30304 5.26176H5.0089V3.78531C5.0089 3.11642 5.19526 2.65846 6.15524 2.65846H7.37166V0.591859C6.7798 0.528431 6.18489 0.497806 5.58965 0.500122C3.82427 0.500122 2.61219 1.57785 2.61219 3.55632V5.25743H0.62793V7.5754H2.61652V13.5H5.0089Z" fill="#14B8A6"/>
+                              </svg></span>facebook.com/themeix
+                            </a>
+                            <a class="flex items-center justify-center transition duration-500 hover:text-teal-400 mt-2 mr-6" href="#"><span class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-200 mr-2"><svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M19.0996 3.34762C19.0996 3.34762 18.9139 2.04762 18.3567 1.49048C17.6758 0.747619 16.871 0.747619 16.4996 0.685714C13.8996 0.5 9.99958 0.5 9.99958 0.5C9.99958 0.5 6.09958 0.5 3.49958 0.685714C3.12815 0.747619 2.32339 0.747619 1.64244 1.49048C1.0853 2.04762 0.899582 3.34762 0.899582 3.34762C0.899582 3.34762 0.713867 4.83333 0.713867 6.31905V7.68095C0.713867 9.16667 0.899582 10.7143 0.899582 10.7143C0.899582 10.7143 1.0853 12.0143 1.64244 12.5714C2.32339 13.3143 3.25196 13.3143 3.6853 13.3762C5.17101 13.4381 9.99958 13.5 9.99958 13.5C9.99958 13.5 13.8996 13.5 16.4996 13.3143C16.871 13.2524 17.6758 13.2524 18.3567 12.5095C18.9139 11.9524 19.0996 10.6524 19.0996 10.6524C19.0996 10.6524 19.2853 9.16667 19.2853 7.68095V6.31905C19.2853 4.83333 19.0996 3.34762 19.0996 3.34762ZM8.08053 9.41429V4.21429L13.0948 6.81429L8.08053 9.41429Z" fill="#14B8A6"/>
+                              </svg></span> youtube.com/u/themeix
+                            </a>
+                            <a class="flex items-center justify-center transition duration-500 hover:text-teal-400 mt-2 mr-6" href="#"><span class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-200 mr-2"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.026 13.5004C11.064 13.5004 14.367 8.49745 14.367 4.16645C14.367 4.02645 14.367 3.88445 14.361 3.74445C15.0041 3.27893 15.5591 2.7026 16 2.04245C15.3993 2.3073 14.7628 2.48185 14.111 2.56045C14.7975 2.15009 15.3117 1.50442 15.558 0.743449C14.913 1.12557 14.207 1.39382 13.471 1.53645C12.9762 1.00947 12.3214 0.660367 11.6081 0.543206C10.8948 0.426046 10.1627 0.54737 9.52534 0.888386C8.88796 1.2294 8.38081 1.77108 8.08245 2.42951C7.78409 3.08794 7.71118 3.82638 7.875 4.53045C6.56974 4.465 5.29282 4.12592 4.12704 3.53519C2.96127 2.94447 1.93268 2.11529 1.108 1.10145C0.68934 1.82453 0.561574 2.67985 0.750646 3.49372C0.939718 4.30758 1.43145 5.01898 2.126 5.48345C1.60554 5.46577 1.09652 5.32601 0.64 5.07545V5.12045C0.640897 5.87793 0.903307 6.61187 1.38287 7.19821C1.86244 7.78455 2.52975 8.18732 3.272 8.33845C2.99026 8.41606 2.69923 8.45476 2.407 8.45345C2.20098 8.45407 1.99538 8.43499 1.793 8.39645C2.00279 9.04851 2.41127 9.61862 2.96125 10.0269C3.51122 10.4352 4.17513 10.6613 4.86 10.6734C3.69656 11.5872 2.2594 12.0829 0.78 12.0804C0.519321 12.0815 0.258823 12.0665 0 12.0354C1.50151 12.9927 3.2453 13.501 5.026 13.5004Z" fill="#14B8A6"/></svg></span> twitter.com/@themeix
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  ====================== Product Area =============================  -->
+    <!--  ====================== Product Area =============================  -->
+    <section class="product-area pt-20 xl:pt-28">
+        <div class="container">
+            <div class="flex flex-wrap items-center mb-7">
+                <a href="creator-published.html" class="inline-flex items-center justify-center bg-teal-400 shadow text-white  font-medium rounded transition-all duration-500 hover:text-white hover:bg-teal-400 px-4 py-3 mr-3 mb-3">Published (55)</a>
+                <a href="creator-followers.html" class="inline-flex items-center justify-center bg-white shadow text-coolGray-600  font-medium rounded transition-all duration-500 hover:text-white hover:bg-teal-400 px-4 py-3 mr-3 mb-3">Followers (88)</a>
+                <a href="creator.html" class="inline-flex items-center justify-center bg-white shadow text-coolGray-600  font-medium rounded transition-all duration-500 hover:text-white hover:bg-teal-400 px-4 py-3 mr-3 mb-3">Activity</a>
+                <a href="creator-edit-profile.html" class="inline-flex items-center justify-center bg-white shadow text-coolGray-600  font-medium rounded transition-all duration-500 hover:text-white hover:bg-teal-400 px-4 py-3 mr-3 mb-3">Edit Profile</a>
+                <a href="login.html" class="inline-flex items-center justify-center bg-white shadow text-coolGray-600  font-medium rounded transition-all duration-500 hover:text-white hover:bg-teal-400 px-4 py-3 mr-3 mb-3">Logout</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {% for auction in myWins %}
+                {% include "elements/item_card.html" %}
+                {% endfor %}
+            </div>
+            <div class="flex items-center justify-center mt-10 lg:mt-16">
+                <a href="#" class="btn-style-3 inline-flex justify-center items-center border border-teal-400 text-white font-medium rounded-full transition-all duration-500 bg-gradient-to-r from-teal-400 via-teal-100 to-teal-400 bg-size-200 bg-pos-0 hover:bg-pos-100 px-8 py-3">LOAD MORE</a>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

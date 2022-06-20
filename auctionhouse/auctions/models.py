@@ -71,6 +71,7 @@ class Bid(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
     winningBid = models.BooleanField(default=False)
 
+
 class Comment(models.Model):
 	auction = models.ForeignKey(Auction, on_delete=models.CASCADE)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)

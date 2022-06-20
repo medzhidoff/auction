@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-color="light">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="images/x-icon" />
+    <link href="{% static "fonts/fonts.css" %}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="{% static "css/app.min.css" %}">
+    {% if title %}
+        <title>Django Auctions - {{title}}</title>
+    {% else %}
+        <title>Django Auctions </title>
+    {% endif %}
+    <!-- main.css -->
+
+
+</head>
+<body>
+{% include "elements/preloader.html" %}
+
+<div class="cursor-direction bg-teal-50"></div>
+<main class="main-area overflow-hidden">
+    {% include "elements/header.html" %}
+    {% block content %}{% endblock content %}
+
+    {% include 'elements/footer.html' %}
+</main>
+
+
+{% block footer %}
+    <!-- gulp:js -->
+
+    <!-- endgulp -->
+{% endblock %}
+<script src="{% static "js/build.min.js" %}"></script>
+</body>
+</html>

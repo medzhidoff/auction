@@ -1,10 +1,38 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import UserRegisterForm, UserUpdateForm, UpdateProfileForm
+from .forms import UserRegisterForm, UserUpdateForm, UpdateProfileForm, UserLoginForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from auctions.models import Auction
+from django.http import Http404
 # Create your views here.
+
+
+def user_login(request):
+    if request.method == 'POST':
+        print("post")
+        form = UserLoginForm(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            print("form valid")
+            username = request.POST['username']
+            password = request.POST['password']
+            print(username + ' ' + password)
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                print("user not none none")
+                return redirect(reverse('profile'))
+        else:
+            print(form.errors)
+            print("form invalid")
+            return render(request, 'accounts/login.html', {'form': form})
+    else:
+
+        form = UserLoginForm()
+    return render(request, 'accounts/login.html', {'form': form})
+
 
 def register(request):
     if request.method == 'POST':
@@ -23,18 +51,6 @@ def register(request):
 # decorator to make sure user is logged in
 @login_required
 def profile(request):
-    if request.method == 'POST':
-        updateUserForm = UserUpdateForm(request.POST, instance=request.user)
-        updateProfileForm = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        # save profiles if valid
-        if updateUserForm.is_valid() and updateProfileForm.is_valid():
-            updateUserForm.save()
-            updateProfileForm.save()
-            messages.success(request, f'Acccount updated!')
-            return redirect('profile')
-    else:
-        updateUserForm = UserUpdateForm(instance=request.user)
-        updateProfileForm = UpdateProfileForm(instance=request.user.profile)
 
     # Pass all auctions that I won here...
 
@@ -50,9 +66,24 @@ def profile(request):
                 myWins.append(aucs)
 
     context = {
-        'updateUserForm' : updateUserForm,
-        'updateProfileForm' : updateProfileForm,
         'myWins' : myWins
     }
 
     return render(request, 'accounts/profile.html', context)
+
+
+@login_required
+def profile_edit(request):
+    if request.method == 'POST':
+        updateUserForm = UserUpdateForm(request.POST, instance=request.user)
+        updateProfileForm = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        # save profiles if valid
+        if updateUserForm.is_valid() and updateProfileForm.is_valid():
+            updateUserForm.save()
+            updateProfileForm.save()
+            messages.success(request, f'Acccount updated!')
+            return redirect('profile')
+    else:
+        updateUserForm = UserUpdateForm(instance=request.user)
+        updateProfileForm = UpdateProfileForm(instance=request.user.profile)
+    pass

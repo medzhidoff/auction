@@ -18,6 +18,7 @@ from django.urls import path, include
 from accounts import views as accounts_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
+from accounts.forms import UserLoginForm
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +26,8 @@ urlpatterns = [
     # Set home page as -> Go to -> auctions/urls.py file
     path('', include('auctions.urls')),
     path('register/', accounts_views.register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    # path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html', authentication_form=UserLoginForm), name='login'),
+    path('login/', accounts_views.user_login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
     path('profile/', accounts_views.profile, name='profile'),
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'), name='password_reset'),
