@@ -1,17 +1,208 @@
 
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags static %}
 {% block content %}
-    <div class="content-section">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Create Auction</legend>
-                {{ form | crispy }} <!-- format the form object passed in from the views.py -->
-            </fieldset>   
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Add</button>
-            </div> 
-        </form>
+    <section class="hero-area pt-10 2xl:pt-20 pb-14 2xl:pb-24 relative">
+        <div class="hero-bg-right absolute -top-40 left-0 right-0 -z-10">
+            <svg class="w-full" width="1920" height="706" viewBox="0 0 1920 706" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_f_1001_24118)">
+                    <ellipse cx="449.786" cy="-36.5" rx="236.345" ry="242.5" fill="#FEF9C3"/>
+                </g>
+                <g filter="url(#filter1_f_1001_24118)">
+                    <ellipse cx="963.711" cy="-81.5" rx="260.711" ry="267.5" fill="#CCFBF1"/>
+                </g>
+                <g filter="url(#filter2_f_1001_24118)">
+                    <ellipse cx="1683.65" cy="-36.5" rx="236.345" ry="242.5" fill="#FEF9C3"/>
+                </g>
+                <g filter="url(#filter3_f_1001_24118)">
+                    <path d="M0 -15L213.442 -15V195.279C213.442 254.219 165.661 302 106.721 302V302C47.7805 302 0 254.219 0 195.279L0 -15Z" fill="#F0FDFA"/>
+                </g>
+                <defs>
+                    <filter id="filter0_f_1001_24118" x="-286.559" y="-779" width="1472.69" height="1485" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                    <filter id="filter1_f_1001_24118" x="303" y="-749" width="1321.42" height="1335" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                    <filter id="filter2_f_1001_24118" x="947.31" y="-779" width="1472.69" height="1485" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                    <filter id="filter3_f_1001_24118" x="-89" y="-104" width="391.442" height="495" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="44.5" result="effect1_foregroundBlur_1001_24118"/>
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="absolute z-10 hidden xl:block opacity-25 2xl:opacity-100 top-0 bottom-0 right-0 left-0">
+               <span class="animate-1 absolute left-20 bottom-0">
+                  <svg width="101" height="75" viewBox="0 0 101 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 2.2146 0)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 21.4348 0)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 40.6553 0)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 59.8757 0)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 79.0962 0)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 98.3164 0)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 2.2146 17.5488)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 2.2146 35.0986)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 2.2146 52.6475)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 2.2146 70.1963)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 21.4348 17.5488)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 21.4348 35.0986)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 21.4348 52.6475)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 21.4348 70.1963)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 40.6553 17.5488)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 40.6553 35.0986)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 40.6553 52.6475)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 40.6553 70.1963)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 59.8757 17.5488)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 59.8757 35.0986)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 59.8757 52.6475)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 59.8757 70.1963)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 79.0962 17.5488)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 79.0962 35.0986)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 79.0962 52.6475)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 79.0962 70.1963)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 98.3164 17.5488)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 98.3164 35.0986)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 98.3164 52.6475)" fill="#14B8A6"/>
+                     <rect width="3.1317" height="3.13172" transform="matrix(0.707116 0.707097 -0.707116 0.707097 98.3164 70.1963)" fill="#14B8A6"/>
+                  </svg>
+               </span>
+            <span class="animate-2 absolute left-20 top-20">
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <ellipse cx="18.706" cy="18.5808" rx="18.706" ry="18.5808" fill="#CCFBF1"/>
+                  </svg>
+               </span>
+            <span class="animate-3 absolute left-52 top-16">
+                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <ellipse cx="10.0674" cy="10" rx="10.0674" ry="10" fill="#FEF9C3"/>
+                  </svg>
+               </span>
+            <span class="animate-2 absolute right-1/3 top-10">
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <ellipse cx="18.706" cy="18.5808" rx="18.706" ry="18.5808" fill="#FEF9C3"/>
+                  </svg>
+               </span>
+            <span class="animate-3 absolute right-96 top-20">
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.651129 19.1367C10.928 19.0878 19.2461 10.8072 19.2657 0.592236C19.2849 10.6462 27.3431 18.8262 37.3956 19.1283L37.3951 19.1451C27.5222 19.442 19.5732 27.3379 19.2744 37.1447C19.2686 37.1449 19.2628 37.1451 19.257 37.1453C18.9536 27.1781 10.7477 19.1847 0.651129 19.1367ZM0.46822 19.1367C0.311684 19.1359 0.155604 19.1333 0 19.1288C0.000156532 19.134 0.00031529 19.1393 0.000476273 19.1446C0.155922 19.1401 0.311844 19.1374 0.46822 19.1367ZM19.2738 0.000481984C19.2687 0.172956 19.266 0.34602 19.2657 0.519642C19.2653 0.345857 19.2626 0.172632 19.2575 0L19.2738 0.000481984Z" fill="#14B8A6"/>
+                  </svg>
+               </span>
+            <span class="animate-1 absolute right-8 bottom-0">
+                  <svg width="93" height="75" viewBox="0 0 93 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 2.03162 0)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 19.6641 0)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 37.2966 0)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 54.9293 0)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 72.5621 0)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 90.1945 0)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 2.03162 17.5488)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 2.03162 35.0986)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 2.03162 52.6475)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 2.03162 70.1963)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 19.6641 17.5488)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 19.6641 35.0986)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 19.6641 52.6475)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 19.6641 70.1963)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 37.2966 17.5488)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 37.2966 35.0986)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 37.2966 52.6475)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 37.2966 70.1963)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 54.9293 17.5488)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 54.9293 35.0986)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 54.9293 52.6475)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 54.9293 70.1963)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 72.5621 17.5488)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 72.5621 35.0986)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 72.5621 52.6475)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 72.5621 70.1963)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 90.1945 17.5488)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 90.1945 35.0986)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 90.1945 52.6475)" fill="#FACC15"/>
+                     <rect width="3.00513" height="3.00514" transform="matrix(0.676024 0.736879 -0.676024 0.736879 90.1945 70.1963)" fill="#FACC15"/>
+                  </svg>
+               </span>
+            <span class="animate-2 absolute right-32 top-32">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <rect width="18" height="18" fill="#CCFBF1"/>
+                  </svg>
+               </span>
+        </div>
+        <div class="container relative z-20">
+            <div class="section-title text-center">
+                <h2 class="text-coolGray-900 leading-tight text-4xl lg:text-6xl font-bold mb-4">Создать аукцион</h2>
+                <div class="section-breadcrumb flex items-center justify-center">
+                    <a class="text-center text-coolGray-600 font-normal transition duration-500 hover:text-teal-400 pl-4 pr-6" href="index.html">Главная</a>
+                    <a class="text-center text-coolGray-600 font-normal transition duration-500 hover:text-teal-400 pl-4 pr-6" href="#">Создать картину</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  ====================== Product Area =============================  -->
+    <div class="product-area z-20 relative">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+                <div class="md:col-span-2 order-1 lg:order-12">
+                    <span class="block text-coolGray-900 font-bold mb-4">Предпросмотр</span>
+                    <div class="relative w-full rounded lg:h-96">
+                        <img class="w-full h-full rounded object-cover" src="{% static "images/product/5.jpg" %}" alt="title">
+                    </div>
+                </div>
+                <div class="md:col-span-4 order-12 lg:order-1">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label class="block text-coolGray-900 font-bold mb-4" for="Title">Название</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-coolGray-900 font-bold mb-4" for="Description">Описание</label>
+                            {{ form.description }}
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-coolGray-900 font-bold mb-4" for="Upload">Загрузите фото</label>
+                            <div class="cursor-pointer relative w-full h-52 rounded border-dashed border-2 border-gray flex justify-center items-center">
+                                <div class="cursor-pointer absolute">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <span class="text-center text-coolGray-400 font-normal mb-2">PNG, JPG, WEBP. Максимум - 10 мб. </span>
+                                        <div class="flex items-center px-6 py-3 bg-lightBlue-300 rounded">
+                                            <span class="text-coolGray-900 font-medium mr-2">Выберите файл</span> <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.12421 6.44602C9.10933 6.42701 9.09031 6.41163 9.06861 6.40105C9.0469 6.39048 9.02307 6.38498 8.99893 6.38498C8.97478 6.38498 8.95095 6.39048 8.92924 6.40105C8.90754 6.41163 8.88852 6.42701 8.87364 6.44602L6.64638 9.26392C6.62802 9.28737 6.61662 9.31551 6.6135 9.34513C6.61038 9.37474 6.61565 9.40464 6.62872 9.4314C6.64179 9.45816 6.66213 9.48071 6.6874 9.49645C6.71268 9.5122 6.74188 9.52052 6.77166 9.52045H8.24126V14.3409C8.24126 14.4284 8.31285 14.5 8.40035 14.5H9.59352C9.68102 14.5 9.75261 14.4284 9.75261 14.3409V9.52244H11.2262C11.3594 9.52244 11.433 9.36932 11.3515 9.26591L9.12421 6.44602Z" fill="#0F172A"/>
+                                            <path d="M14.9529 4.61051C14.0421 2.20824 11.7214 0.5 9.00291 0.5C6.28445 0.5 3.96371 2.20625 3.05291 4.60852C1.34865 5.05597 0.0898438 6.60909 0.0898438 8.45455C0.0898438 10.652 1.86967 12.4318 4.06513 12.4318H4.86257C4.95007 12.4318 5.02166 12.3602 5.02166 12.2727V11.0795C5.02166 10.992 4.95007 10.9205 4.86257 10.9205H4.06513C3.39496 10.9205 2.76456 10.654 2.29524 10.1707C1.82791 9.68949 1.57933 9.04119 1.60121 8.36903C1.61911 7.84403 1.79808 7.35085 2.12223 6.93523C2.45433 6.51165 2.91967 6.20341 3.43672 6.06619L4.19041 5.86932L4.46683 5.14148C4.63786 4.68807 4.87649 4.26449 5.17678 3.88068C5.47322 3.50027 5.82438 3.16587 6.21882 2.88835C7.03615 2.31364 7.99865 2.00937 9.00291 2.00937C10.0072 2.00937 10.9697 2.31364 11.787 2.88835C12.1827 3.16676 12.5327 3.50085 12.829 3.88068C13.1293 4.26449 13.368 4.69006 13.539 5.14148L13.8134 5.86733L14.5651 6.06619C15.643 6.35653 16.3967 7.33693 16.3967 8.45455C16.3967 9.11278 16.1401 9.73324 15.6748 10.1986C15.4466 10.4281 15.1751 10.6101 14.8761 10.734C14.5771 10.8579 14.2564 10.9213 13.9327 10.9205H13.1353C13.0478 10.9205 12.9762 10.992 12.9762 11.0795V12.2727C12.9762 12.3602 13.0478 12.4318 13.1353 12.4318H13.9327C16.1282 12.4318 17.908 10.652 17.908 8.45455C17.908 6.61108 16.6532 5.05994 14.9529 4.61051Z" fill="#0F172A"/>
+                                        </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ form.image }}
+                            </div>
+                        </div>
+
+                        <div class="mb-10">
+                            <label class="block text-coolGray-900 font-bold mb-4" for="category">Категория</label>
+
+                            {{ form.category }}
+
+                        </div>
+                        <div class="mb-10">
+                            <label class="block text-coolGray-900 font-bold mb-4" for="category">Статус</label>
+
+                            {{ form.status }}
+
+                        </div>
+                        <button type="submit" class="btn-style-3 inline-flex justify-center items-center border border-teal-400 text-white font-medium rounded-full transition-all duration-500 bg-gradient-to-r from-teal-400 via-teal-100 to-teal-400 bg-size-200 bg-pos-0 hover:bg-pos-100 px-8 py-3">Создать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock content %}

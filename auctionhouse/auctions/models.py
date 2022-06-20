@@ -1,4 +1,3 @@
-from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -24,19 +23,53 @@ CONDITION_CHOICES = [
     ('Seller refurbished', 'Seller refurbished'),
 ]
 
-class Auction(models.Model):
+STATUS_CHOICES = [
+    ('ONSALE', 'На продаже'),
+    ('SOLD', 'Продан'),
+    ('HIDDEN', 'Скрыт'),
+]
+
+
+class ItemCategory(models.Model):
     title = models.CharField(max_length=255)
-    condition = models.CharField(max_length=50, choices=CONDITION_CHOICES, default='New')
     description = models.TextField()
     image = models.ImageField(default='default.jpg', upload_to='images_auctions')
+
+    def __str__(self):
+        return self.title
+
+
+class Item(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    lot_number = models.IntegerField()
+    image = models.ImageField(default='default.jpg', upload_to='images_items')
+    description = models.TextField()
     date_created = models.DateTimeField(default=timezone.now)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey('ItemCategory', null=True, blank=True, on_delete=models.SET_NULL)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='item_creator')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='item_owner')
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='New')
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('item-detail', kwargs={'pk' : self.pk})
+
+
+class Auction(models.Model):
+
+    date_created = models.DateTimeField(default=timezone.now)
     date_expired = models.DateTimeField(default=datetime.now()+timedelta(days=7))
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    item = models.ForeignKey('Item', blank=False, null=True, on_delete=models.CASCADE, related_name='item')
     # Variables to save having to traverse through all bids etc here
-    price = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
+    start_price = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
+    fixed_price = models.PositiveIntegerField(default=0)
     amount_of_bids = models.IntegerField(default=0)
-    closed = models.BooleanField(default=False)
     winnerBid = models.ForeignKey('Bid', blank=True, null=True, on_delete=models.CASCADE, related_name='winner')
+    closed = models.BooleanField(default=False)
 
 
     @property
@@ -48,21 +81,11 @@ class Auction(models.Model):
         return False
 
     def __str__(self):
-        return self.title
+        return self.item.title
 
     def get_absolute_url(self):
         return reverse('auction-detail', kwargs={'pk' : self.pk})
 
-    #override save method
-    def save(self, *args, **kwargs):
-        # call parent save method
-        super(Auction, self).save(*args, **kwargs)
-        img = Image.open(self.image.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
     
 class Bid(models.Model):
     price = models.IntegerField(default=1)
@@ -77,3 +100,7 @@ class Comment(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	message = models.TextField()
 	date_created = models.DateTimeField()
+
+
+
+

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Auction, Bid, Comment
-from .forms import AddBidForm, AddAuctionForm
+from .models import Auction, Bid, Comment, Item
+from .forms import AddBidForm, AddAuctionForm, AddItemForm
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
@@ -10,6 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.utils import timezone
 from django.views.generic import (
@@ -22,7 +23,7 @@ from django.views.generic import (
 
 ## HOME PAGE - LIST
 class AuctionListView(ListView):
-    model = Auction
+    model = Item
     template_name = 'auctions/home.html'
     # order by newest auctions
     ordering = ['-date_created']
@@ -81,7 +82,7 @@ class BidDetailView(DetailView):
 # calculating how to increment prices on bids i.e 10 => increase by 1, 100 => increase by 10 etc
 def getPercents(auction):
     percents = "1"
-    increment = len(str(auction.price)) - 1
+    increment = len(str(auction.start_price)) - 1
     print(increment)
     for a in range(increment-1):
         percents = percents + "0"
@@ -102,12 +103,12 @@ class AuctionDetailView(FormMixin, DetailView):
         auction = get_object_or_404(Auction, pk=self.kwargs.get('pk'))
         context['bid_list'] = Bid.objects.filter(auction=auction).order_by('date_created')
         if len(context['bid_list']) <= 0:
-            price = auction.price + getPercents(auction)
+            start_price = auction.start_price + getPercents(auction)
         else:
-            price = context['bid_list'].last().price + getPercents(auction)
+            start_price = context['bid_list'].last().start_price + getPercents(auction)
         context['form'] = AddBidForm(initial={
             'auction': self.object,
-            'price' : price,
+            'price' : start_price,
             'user': self.request.user,
         })
         # Pass the comments that this auction has attached and order by the date created
@@ -148,9 +149,41 @@ class AuctionDetailView(FormMixin, DetailView):
         form.save()
         return super().form_valid(form)
 
+
+class ItemCreateView(LoginRequiredMixin, CreateView):
+    model = Item
+    form_class = AddItemForm
+
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        form.instance.lot_number = 100
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+
+@login_required
+def create_auction(request):
+    if request.method == 'POST':
+        form = AddAuctionForm(request.POST, user=request.user)
+        print(form)
+        if form.is_valid():
+            print('valid')
+            form.instance.owner = request.user
+            form.instance.creator = request.user
+            new_auction = form.save()
+            print(new_auction.id)
+            return redirect(reverse('auction-detail', kwargs={'pk': new_auction.id}))
+    else:
+        form = AddAuctionForm(user=request.user)
+    return render(request, 'auctions/auction_form.html', {'form': form})
+
+
 ## CREATE
 class AuctionCreateView(LoginRequiredMixin, CreateView):
     model = Auction
+    # items_to_sell = Item.objects.filter(owner__exact=self.request.user)
+    # print(items_to_sell)
+
     form_class = AddAuctionForm
 
     #override form_valid

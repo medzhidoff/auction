@@ -4,7 +4,7 @@ from .forms import UserRegisterForm, UserUpdateForm, UpdateProfileForm, UserLogi
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from auctions.models import Auction
+from auctions.models import Auction, Item
 from django.http import Http404
 # Create your views here.
 
@@ -56,6 +56,9 @@ def profile(request):
 
     # First find all those that are closed
     auctions = Auction.objects.filter(closed=True)
+    owned_items = Item.objects.filter(owner__exact=request.user)
+    print('sdsdsd')
+    print(owned_items)
     # Now find the winningBid is equal to me
     myWins = []
     for aucs in auctions:
@@ -66,7 +69,7 @@ def profile(request):
                 myWins.append(aucs)
 
     context = {
-        'myWins' : myWins
+        'owned_items': owned_items,
     }
 
     return render(request, 'accounts/profile.html', context)
@@ -87,3 +90,13 @@ def profile_edit(request):
         updateUserForm = UserUpdateForm(instance=request.user)
         updateProfileForm = UpdateProfileForm(instance=request.user.profile)
     pass
+
+
+@login_required
+def profile_created_items(request):
+    created_items = Item.objects.filter(creator__exact=request.user)
+    context = {
+        'created_items': created_items,
+    }
+
+    return render(request, 'accounts/profile_created_items.html', context)
